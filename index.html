@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alias Mercado Pago</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+      padding: 50px;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      display: inline-block;
+    }
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+    .alias {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #0077c8;
+      margin-bottom: 20px;
+      user-select: all; /* permite copiar fácil el alias */
+    }
+    button {
+      background: #00a8e0;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1.1em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #0077c8;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Este es mi alias</h1>
+    <p class="alias">luc.axel</p>
+    <button onclick="abrirMP()">Enviar dinero en Mercado Pago</button>
+  </div>
+
+  <script>
+    function abrirMP() {
+      // Intento 1: deep link a enviar dinero con alias
+      window.location.href = "mercadopago://money-transfer?alias=luc.axel";
+
+      // Fallback: si no funciona en la app, abre la web
+      setTimeout(() => {
+        window.location.href = "https://www.mercadopago.com.ar/money-transfer";
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
